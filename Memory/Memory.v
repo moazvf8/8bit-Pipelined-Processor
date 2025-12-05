@@ -33,4 +33,5 @@ always@( posedge CLK or negedge RST )
 
 //Read logic
 assign Read_D = Read_EN ? MEM[ Address ] : { Width { 1'b0 } } ;
+
 endmodule
