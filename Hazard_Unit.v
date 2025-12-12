@@ -15,6 +15,7 @@ module Hazard_Unit (
     // Decode Stage )
     input wire [1:0] rs_D,       
     input wire [1:0] rt_D,       
+    input wire is_2byte_D,
     
     // Execute Stage
     input wire [1:0] rd_E,       
@@ -74,17 +75,17 @@ module Hazard_Unit (
         flush_E = 1'b0;     // Do not flush ID/EX
         flush_D = 1'b0;     // Do not flush IF/ID
 
-        // --- A. RET / RTI Hazard (Highest Priority) ---
+
+        // 1. RET/RTI (Highest Priority - wait for PC update)
         if (is_ret_D || is_ret_E || is_ret_M) begin
             // 1. Stop fetching new instructions.
             stall_F = 1'b0;     
-            
             // 2. Kill the instruction currently in the IF/ID register.
-            flush_D = 1'b1;     
-            
+            flush_D = 1'b1;        
         end
 
-        // --- B. Control Hazard (Branch/JMP) ---
+        // 2. Branch Taken (Clear the wrong path immediately)
+        //  Control Hazard (Branch/JMP) ---
         // Only trigger this if we are NOT currently stalled by a RET logic above.
         // This handles JZ, JN, JMP, CALL, LOOP.
         else if (branch_taken_E) begin
@@ -92,7 +93,14 @@ module Hazard_Unit (
             flush_D = 1'b1;     // Flush the instruction in Decode (it's wrong)
         end
 
-        // --- C. Load-Use Hazard ---
+        // 3. 2-Byte Fetch (Need second byte for a valid instruction)
+        else if (is_2byte_D) begin 
+        stall_F = 1'b0; 
+        stall_D = 1'b0;
+        flush_E = 1'b1; 
+         end
+
+        // 4. Load-Use (Wait for data)
         // If instruction in EX is a Load, and instruction in ID uses that data.
         // We must stall 1 cycle to wait for the data to come from Memory.
         else if (mem_read_E && ((rd_E == rs_D) || (rd_E == rt_D))) begin
