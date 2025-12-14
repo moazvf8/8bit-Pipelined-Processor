@@ -58,9 +58,9 @@ module ID_EX_Reg (
             rd_en_E            <= 1'b0;
             rd2_sel_E          <= 1'b0;
             mux_out_sel_E      <= 1'b0;
-            mux_dmem_a_sel_E   <= 1'b0;
-            mux_dmem_wd_sel_E  <= 1'b0;
-            mux_rdata_sel_E    <= 1'b0;
+            mux_dmem_a_sel_E   <= 2'b0;
+            mux_dmem_wd_sel_E  <= 2'b0;
+            mux_rdata_sel_E    <= 2'b0;
             f_save_E           <= 1'b0;
             f_restore_E        <= 1'b0;
             is_ret_E           <= 1'b0;
@@ -112,3 +112,4 @@ module ID_EX_Reg (
     end
 
 endmodule
+
