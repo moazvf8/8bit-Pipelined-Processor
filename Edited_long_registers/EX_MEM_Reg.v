@@ -49,7 +49,7 @@ module EX_MEM_Reg (
             is_ret_M         <= 1'b0;
             branch_taken_M   <= 1'b0;
             mux_out_sel_M    <= 1'b0;
-            mux_rdata_sel_M  <= 1'b0;
+            mux_rdata_sel_M  <= 2'b0;
             alu_out_M        <= 8'b0;
             RD2_M            <= 8'b0;
             rd_M             <= 2'b0;
@@ -82,3 +82,4 @@ module EX_MEM_Reg (
     end
 
 endmodule
+
