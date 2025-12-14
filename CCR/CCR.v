@@ -27,7 +27,7 @@ always@( posedge CLK or negedge RST )
             Current_Flags <= IN; //Storing the new coming flags
     end
 
-assign OUT = F_Restore ? Stacked_flags : Current_Flags;   
+assign OUT = F_Restore ? Stacked_flags : Current_Flags; //Outputting the desired flags 
 
 
 endmodule 
