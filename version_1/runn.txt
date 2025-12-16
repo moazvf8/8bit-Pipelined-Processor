@@ -1,0 +1,34 @@
+vlib work 
+vlog -f sourcefile.txt
+vsim -voptargs=+asss work.CPU_tb
+add wave -position insertpoint  \
+sim:/CPU_tb/CLK_tb
+add wave -position insertpoint  \
+sim:/CPU_tb/RST_tb
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/Control_unit/MUX_RDATA_Sel
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/Decode_Execute_Register/mux_rdata_sel_E
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/Decode_Execute_Register/wr_en_regf_E
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/Decode_Execute_Register/ADDER_E
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/Decode_Execute_Register/imm_E
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/Reg_file/R
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/I_memory/RD
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/Control_unit/current_state
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/I_memory/MEM
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/PC/pc_out
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/MUX_PC/s0 \
+sim:/CPU_tb/DUT/MUX_PC/s1
+add wave -position insertpoint  \
+sim:/CPU_tb/DUT/ALU1/alu_out
+
+run -all
