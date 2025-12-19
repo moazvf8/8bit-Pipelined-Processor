@@ -85,13 +85,24 @@ module ALU (
                     alu_out           = b + 1;
                     zero              = ~|alu_out;
                     neg               = alu_out[7];
+                    overflow = (~b[7]) && alu_out[7];
+                    cout =&b;
                 end
 
                 'd17: begin // DEC Instruction
                     alu_out           = b - 1;
                     zero              = ~|alu_out;
                     neg               = alu_out[7];
+                    overflow = (~b[7]) && alu_out[7];
+                    cout =|b;  //Carry = 1 if NO borrow
                 end
+
+                'd22: begin // loop Instruction
+                    alu_out           = a - 1;
+                    zero              = ~|alu_out;
+                    neg               = alu_out[7];
+                end
+
 
                 default: begin
                     alu_out           = b;
