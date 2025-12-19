@@ -40,7 +40,7 @@ module CU (
 );
 
 	//states
-	localparam  IDLE = 2'b00, SECOND_BYTE = 2'b01;
+	localparam  IDLE = 2'b00, SECOND_BYTE = 2'b01, LOOP_STATE = 2'b10;
 
 	reg [1:0] current_state, next_state;
 	reg [7:0] storage;
@@ -214,14 +214,14 @@ module CU (
 												4'b0110: begin
 						                            case (instr_ra)
 						                                2'b00: begin // RLC
-						                                    alu_control = 6'b001010; // 6
+						                                    alu_control = 6'b000110; // 6
 						                                    MUX_OUT_Sel = 1'b1;      // choose ALU output
 						                                    ADDR_Sel = 2'b01;        // result written back to rb
 						                                    MUX_RDATA_Sel = 2'b10;   // ALU -> regfile
 						                                    wr_en_regf = 1'b1;
 						                                end
 						                                2'b01: begin // RRC
-						                                    alu_control = 6'b001011;  // 7
+						                                    alu_control = 6'b000111;  // 7
 						                                    MUX_OUT_Sel = 1'b1;       // choose ALU output
 						                                    ADDR_Sel = 2'b01;         // result written back to rb
 						                                    MUX_RDATA_Sel = 2'b10;    // ALU -> regfile
@@ -333,7 +333,7 @@ module CU (
 						                            case (instr_brx)
 						                                2'b00: begin // JZ
 						                                	alu_control = 6'b010010; // 18
-						                                    if (flags[3] == 1'b1) begin   // Z=1
+						                                    if (flags[0] == 1'b1) begin   // Z=1
 						                                        alu_control = 6'b010111; // PASS RD2
 						                                        MUX_OUT_Sel = 1'b1; // ALU output
 						                                        PC_Sel = 2'b11; // jump to output
@@ -343,7 +343,7 @@ module CU (
 						                                end
 						                                2'b01: begin // JN
 						                                	alu_control = 6'b010011; // 19
-						                                    if (flags[2] == 1'b1) begin    // N = 1
+						                                    if (flags[1] == 1'b1) begin    // N = 1
 						                                        alu_control = 6'b010111; // PASS RD2
 						                                        MUX_OUT_Sel = 1'b1; // ALU output
 						                                        PC_Sel = 2'b11; // jump to output
@@ -353,7 +353,7 @@ module CU (
 						                                end
 						                                2'b10: begin // JC
 						                                	alu_control = 6'b010100; // 20
-						                                    if (flags[1] == 1'b1) begin    // C = 1
+						                                    if (flags[2] == 1'b1) begin    // C = 1
 						                                        alu_control = 6'b010111; // PASS RD2
 						                                        MUX_OUT_Sel = 1'b1; // ALU output
 						                                        PC_Sel = 2'b11; // jump to output
@@ -363,7 +363,7 @@ module CU (
 						                                end
 						                                2'b11: begin // JV
 						                                	alu_control = 6'b010101; // 21
-						                                    if (flags[0] == 1'b1) begin    // V = 1
+						                                    if (flags[3] == 1'b1) begin    // V = 1
 						                                        alu_control = 6'b010111; // PASS RD2
 						                                        MUX_OUT_Sel = 1'b1; // ALU output
 						                                        PC_Sel = 2'b11; // jump to output
@@ -378,17 +378,13 @@ module CU (
 												// LOOP (Opcode 10) :R[ra] <- R[ra] - 1; if result !=0 PC <- R[rb] else PC+1
 												4'b1010: begin
 						                            alu_control = 6'b010110; // 22
-						                            // branch decision 
-						                            if (flags[3] != 1'b0) begin
-						                                PC_Sel = 2'b11; // branch to R[rb]
-						                                branch_taken_E = 1'b1;
-						                            end else begin
-						                                PC_Sel = 2'b00;
-						                            end
-						                            MUX_RDATA_Sel=2'b10;
-						                            MUX_OUT_Sel=1'b1;
-						                            wr_en_regf = 1'b1; // write back decremented RA
-						                            ADDR_Sel = 2'b00; // write back to RA 
+													next_state = LOOP_STATE;
+													if (flags[0] != 1'b0) begin
+	                      								PC_Sel = 2'b11; // branch to R[rb]
+			               			     				branch_taken_E = 1'b1;
+				                					end else begin
+					                					PC_Sel = 2'b00;
+				                					end
 						                        end
 
 												// JMP/CALL/RET/RTI (Opcode 11)
@@ -566,6 +562,15 @@ module CU (
 								end
 				end
 				
+				LOOP_STATE : begin
+						         // branch decision 
+			                    MUX_RDATA_Sel=2'b10;
+	                            MUX_OUT_Sel=1'b1;
+				                wr_en_regf = 1'b1; // write back decremented RA	
+								ADDR_Sel = 2'b00; // write back to RA	
+								next_state = IDLE; 
+				end
+
 				default : begin
 							next_state = IDLE;
 				end  
