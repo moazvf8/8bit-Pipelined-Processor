@@ -450,8 +450,8 @@ mux_4x1 MUX_DMEM_WD
 (
 .i0( IMM_internal_DEX_Stage_output ),    
 .i1( RD2_internal_DEX_Stage_output ),   
-.i2( PC_P_one_internal_DEX_Stage_output ),   
-.i3( pc_out_internal_DEX_Stage_output ),    
+.i2( PC_P_one_internal_FD_Stage_output ),   
+.i3( pc_out_internal_FD_Stage_output ),    
 .s0( MUX_DMEM_WD_Sel_internal_DEX_Stage_output[ 0 ] ),
 .s1( MUX_DMEM_WD_Sel_internal_DEX_Stage_output[ 1 ] ),
 .out( MUX_DMEM_WD_out )
