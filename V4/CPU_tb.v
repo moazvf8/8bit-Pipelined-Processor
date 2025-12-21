@@ -37,6 +37,13 @@ module CPU_tb ();
  
 
 
+	@(negedge CLK_tb);
+	INTR_in_tb = 1'b1;   // raise interrupt
+
+	@(negedge CLK_tb);
+	INTR_in_tb = 1'b0;   // clear interrupt
+
+		
        repeat(100)@(negedge CLK_tb);
         $stop;
     end
