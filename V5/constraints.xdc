@@ -7,6 +7,16 @@
 set_property -dict {PACKAGE_PIN W5 IOSTANDARD LVCMOS33} [get_ports CLK]
 create_clock -period 10.000 -name sys_CLK_pin -waveform {0.000 5.000} -add [get_ports CLK]
 
+# Setup time for Inputs (Switches/Buttons)
+# We assume the signal is stable at least 3ns before the clock edge
+set_input_delay -clock [get_clocks sys_CLK_pin] -max 3.000 [get_ports {INPUT[*]}]
+set_input_delay -clock [get_clocks sys_CLK_pin] -max 3.000 [get_ports INTR_in]
+set_input_delay -clock [get_clocks sys_CLK_pin] -max 3.000 [get_ports RST]
+
+# Output Delay (LEDs)
+# We tell the tool the LEDs need the data within 2ns of the clock edge
+set_output_delay -clock [get_clocks sys_CLK_pin] -max 2.000 [get_ports {OUTPUT[*]}]
+
 
 # Switches
 #set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {unlock_doors}]
