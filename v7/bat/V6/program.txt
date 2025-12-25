@@ -1,0 +1,11 @@
+00000000 // Address 0: NOP
+00000000 // Address 1: NOP
+00000000 // Address 2: NOP
+00000000 // Address 3: NOP
+00000000 // Address 4: NOP
+11000000 // LDM in R0
+00000010 // 2 in R0
+11000001 // LDM in R1
+00000001 // 1 in R1
+00100001 // ADD R0 = R0 + R1 = 3 (1-byte instruction)
+00100001 // ADD R0 = R0 + R1 = 4 (1-byte instruction) -> DEPENDENCY on previous ADD

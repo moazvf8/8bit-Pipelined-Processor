@@ -1,0 +1,152 @@
+C:/Users/moaz/Downloads/bat/V6/mux_4x1.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/mux_4x1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux_4x1
+
+Top level modules:
+	mux_4x1
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/CPU.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/CPU.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module adder
+-- Compiling module ALU
+-- Compiling module CCR
+-- Compiling module CU
+-- Compiling module Data_memory
+-- Compiling module EX_MEM_Reg
+-- Compiling module Hazard_Unit
+-- Compiling module ID_EX_Reg
+-- Compiling module IF_ID_Reg
+-- Compiling module Instruction_memory
+-- Compiling module MEM_WB_Reg
+-- Compiling module Register_en
+-- Compiling module mux_2x1
+-- Compiling module mux_2x1_2bits
+-- Compiling module mux_4x1
+-- Compiling module mux_4x1_2bits
+-- Compiling module pc
+-- Compiling module Register_file
+-- Compiling module CPU
+
+Top level modules:
+	CPU
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/adder.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/adder.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/Hazard_Unit.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/Hazard_Unit.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Hazard_Unit
+
+Top level modules:
+	Hazard_Unit
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/Instruction_memory.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/Instruction_memory.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Instruction_memory
+
+Top level modules:
+	Instruction_memory
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/MEM_WB_Reg.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/MEM_WB_Reg.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module MEM_WB_Reg
+
+Top level modules:
+	MEM_WB_Reg
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/CPU_tb.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/CPU_tb.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CPU_tb
+
+Top level modules:
+	CPU_tb
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/Register_en.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/Register_en.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Register_en
+
+Top level modules:
+	Register_en
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/mux_2x1_2bits.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/mux_2x1_2bits.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux_2x1_2bits
+
+Top level modules:
+	mux_2x1_2bits
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/EX_MEM_Reg.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/EX_MEM_Reg.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module EX_MEM_Reg
+
+Top level modules:
+	EX_MEM_Reg
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/CU.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/CU.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CU
+
+Top level modules:
+	CU
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/CCR.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/CCR.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CCR
+
+Top level modules:
+	CCR
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/IF_ID_Reg.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/IF_ID_Reg.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module IF_ID_Reg
+
+Top level modules:
+	IF_ID_Reg
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/mux_4x1_2bits.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/mux_4x1_2bits.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux_4x1_2bits
+
+Top level modules:
+	mux_4x1_2bits
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/ALU.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/ALU.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/Data_memory.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/Data_memory.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Data_memory
+
+Top level modules:
+	Data_memory
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/pc.v {1 {vlog -work work {C:\Users\moaz\Downloads\bat\V6\pc.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module pc
+
+Top level modules:
+	pc
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/Register_file.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/Register_file.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Register_file
+
+Top level modules:
+	Register_file
+
+} {} {}} C:/Users/moaz/Downloads/bat/V6/mux_2x1.v {1 {vlog -work work C:/Users/moaz/Downloads/bat/V6/mux_2x1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux_2x1
+
+Top level modules:
+	mux_2x1
+
+} {} {}}
