@@ -1,0 +1,19 @@
+00000000 // Address 0: NOP (Reset Vector starts here)
+00000000 // Address 1: NOP (Interrupt Vector)
+00000000 // Address 2: NOP
+00000000 // Address 3: NOP
+00000000 // Address 4: NOP
+11000000 // LDM in R0
+00000011 // 3 in R0
+11000001 // LDM in R1
+00000111 // 7 in R1
+11000010 // LDM in R2
+00000101 // 5 in R2
+//00100001 // ADD R0 = R0 + R1 = 0B
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
